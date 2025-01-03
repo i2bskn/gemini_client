@@ -1,24 +1,43 @@
 # GeminiClient
 
-TODO: Delete this and the text below, and describe your gem
-
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gemini_client`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add gemini_client
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install gemini_client
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+client = GeminiClient.new(api_key: GEMINI_API_KEY)
+payload = {
+  contents: [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "hello"
+        }
+      ]
+    }
+  ]
+}
+res = client.generate_content(payload: payload)
+data = JSON.parse(res.body)
+pp data
+```
+
+```
+{"candidates"=>[{"content"=>{"parts"=>[{"text"=>"Hello there! How can I help you today?\n"}], "role"=>"model"}, "finishReason"=>"STOP", "avgLogprobs"=>-0.0006325314752757549}],
+ "usageMetadata"=>{"promptTokenCount"=>2, "candidatesTokenCount"=>11, "totalTokenCount"=>13},
+ "modelVersion"=>"gemini-1.5-flash"}
+```
 
 ## Development
 
