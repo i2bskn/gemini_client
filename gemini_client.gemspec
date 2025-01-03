@@ -1,20 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/gemini/client/version"
+require_relative "lib/gemini_client/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "gemini-client"
-  spec.version = Gemini::Client::VERSION
+  spec.name = "gemini_client"
+  spec.version = GeminiClient::VERSION
   spec.authors = ["i2bskn"]
   spec.email = ["i2bskn@gmail.com"]
 
   spec.summary = "Gemini client is a client library for Gemini API."
   spec.description = "Gemini client is a client library for Gemini API."
-  spec.homepage = "https://github.com/i2bskn/gemini-client"
+  spec.homepage = "https://github.com/i2bskn/gemini_client"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "https://github.com/i2bskn/gemini_client/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
